@@ -1,7 +1,7 @@
 # k8s_web_app
 Kubernetes-Based Odoo ERP Platform
 ---------------------------------------
-A lightweight infrastructure setup for deploying Odoo ERP with PostgreSQL and NGINX reverse proxy, using persistent volumes and container orchestration via Kubernetes or Docker.
+Odoo ERP with PostgreSQL and NGINX reverse proxy, using persistent volumes and container orchestration via Kubernetes or Docker.
 
 Features
 Containerized Odoo ERP and PostgreSQL services
