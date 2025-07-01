@@ -19,32 +19,15 @@ Odoo	ERP Frontend + Backend (Python)	8069
 PostgreSQL	Database for Odoo	5432
 NGINX	Reverse proxy for Odoo UI	80
 
-Structure
 
-odoo-k8s/
-├── odoo-deployment.yaml         # Odoo + PVC + Service
-├── postgres-deployment.yaml     # PostgreSQL + PVC + Service
-├── nginx-deployment.yaml        # Reverse proxy for Odoo
-├── pv/
-│   ├── odoo-pv.yaml             # PersistentVolumeClaim for Odoo
-│   └── postgres-pv.yaml         # PersistentVolumeClaim for PostgreSQL
-├── config/
-│   └── default.conf             # NGINX reverse proxy config
 How to Deploy (Minikube or K8s)
-bash
-Copy
-Edit
-# Step 1: Create volumes
 kubectl apply -f pv/postgres-pv.yaml
 kubectl apply -f pv/odoo-pv.yaml
 
-# Step 2: Deploy PostgreSQL
 kubectl apply -f postgres-deployment.yaml
 
-# Step 3: Deploy Odoo
 kubectl apply -f odoo-deployment.yaml
 
-# Step 4: Set up NGINX reverse proxy
 kubectl create configmap nginx-config --from-file=config/default.conf
 kubectl apply -f nginx-deployment.yaml
 Access Odoo
@@ -52,9 +35,6 @@ minikube service nginx --url
 Open the returned URL in your browser (usually http://<minikube-ip>:<nodePort>).
 
 NGINX Config (example)
-nginx
-Copy
-Edit
 server {
     listen 80;
 
